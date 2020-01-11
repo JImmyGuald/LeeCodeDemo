@@ -75,8 +75,21 @@ public class Demo1 {
 
 
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("pwwkew"));
+        /*System.out.println(lengthOfLongestSubstring("pwwkew"));
         System.out.println(lengthOfLongestSubstring2(" "));
-        System.out.println(lengthOfLongestSubstring3("pwwkew"));
+        System.out.println(lengthOfLongestSubstring3("pwwkew"));*/
+        Demo1 d = new Demo1();
+        System.out.println(d.hashCode());
+        System.out.println(d.hashCode());
+
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        for (String a:
+             list) {
+            if("b".equals(a)){
+                list.remove(a);
+            }
+        }
     }
 }
