@@ -42,7 +42,22 @@ package com.guald.demo;
  */
 public class LC200413 {
     //动态规划
+    //状态：dp[i][j]表示掷i个色子和为j的个数
+    //方程：dp[i][j] = dp[i-1][j-1]+dp[i-1][j-2]+...+dp[i-1][j-f]
     public int numRollsToTarget(int d, int f, int target) {
-
+        int MOD = 1000000007;
+        int[][] dp = new int[31][1001];
+        for(int i=1;i<=f;i++){
+            dp[1][i] = 1;
+        }
+        for(int i=2;i<=d;i++){
+            int min = Math.min(i*f,target);
+            for(int j=i;j<=min;j++){
+                for(int k=1;j-k>0 && k <= f;k++) {
+                    dp[i][j] = (dp[i][j]+dp[i-1][j-k])%MOD;
+                }
+            }
+        }
+        return dp[d][target];
     }
 }
